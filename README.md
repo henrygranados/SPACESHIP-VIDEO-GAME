@@ -1,6 +1,6 @@
 # SPACESHIP-VIDEO-GAME
 
-This is a spaceship video game built in javascript and canvas.
+This is a spaceship video game built in Javascript and Canvas.
 
 **INTRUCTIONS:**
 
