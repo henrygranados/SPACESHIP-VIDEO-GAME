@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<link href="CSS/style.css" rel="stylesheet" type="text/css">
+<title>Henry Granados Game</title>
+<head>
+<script type="text/javascript" src = "app.js"></script>
+<style type="text/css">
+body{ margin:10px; background-image: url("images/wall.jpg"); }
+#my_canvas{ background:#000000; border:#000 1px solid; }
+.boton{
+    color:red;
+    font-size: 24px;
+    background-color: #000000;
+    cursor: pointer;
+    border-radius: 8px;
+    border:2px solid blue;
+}
+.boton:hover{
+    background-color: white;
+    color: #000000;
+}
+</style>
+<script>
+</script>
+</head>
+<body>
+<center>
+<canvas id="my_canvas" width="700" height="600"></canvas>
+<h3 style = "color:white;font-size:25px;background-color:#000000;padding:15px 15px; padding-left:100px; padding-right:100px;"id="status"></h3>
+<div>
+  <button class = "boton" id="left_btn">Move Left</button>
+   <button class = "boton" id="fire_btn">Fire Missile</button>
+  <button class = "boton" id="right_btn">Move Right</button>
+</div>
+</center>
+</body>  
+</html>
