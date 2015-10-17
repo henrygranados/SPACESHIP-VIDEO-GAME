@@ -12,4 +12,4 @@ This is a spaceship video game built in Javascript and Canvas.
 
 **Live Demo could be found at:** http://henrygranados.github.io/video_game.html
 
-![alt tag](https://github.com/henrygranados/SPACESHIP-VIDEO-GAME/blob/master/images/video-game.png)
+![alt tag](https://github.com/henrygranados/SPACESHIP-VIDEO-GAME/blob/master/images/game-pictures.png)
