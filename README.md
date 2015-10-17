@@ -4,11 +4,9 @@ This is a spaceship video game built in Javascript and Canvas.
 
 **INTRUCTIONS:**
 
-1.- Use up, down, left and right arrows from keyboard to move spaceship
+1.- Use up, down, left and right arrows from keyboard to move spaceship or click on Use left and right buttons
 
-2.- Use left and right buttons to move spaceship.
-
-3.- Shooting could be done by either pressing the "space button" from keyboard or by pressing the "Fire Missile" button on the screen
+2.- Shooting could be done by either pressing the "space button" from keyboard or by clicking on the "Fire Missile" button.
 
 **Live Demo could be found at:** http://henrygranados.github.io/video_game.html
 
