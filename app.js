@@ -1,11 +1,3 @@
-$(document).ready(function(){
-
-$(document).mousemove(function(event){ 
-        $("span").text("X: " + ctx.event.pageX + ", Y: " + ctx.event.pageY); 
-});
-$("#test").hide(2000).show(2000);
-
-
 function initCanvas(){
     var ctx = document.getElementById('my_canvas').getContext('2d');
     var myImage = new Image();
@@ -206,5 +198,4 @@ function initCanvas(){
 }
 window.addEventListener('load', function(event) {
     initCanvas();
-});
 });
