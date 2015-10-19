@@ -3,12 +3,15 @@ function initCanvas(){
     var myImage = new Image();
     var img  = new Image();
     var enemiespic = new Image();
+    var enemiespic2 = new Image();
     myImage.src = "images/background-pic.jpg"; //Background picture
     img.src = "images/spaceship-pic.png"; //Spaceship picture
     enemiespic.src = "images/enemies.png"; //Enemies picture
+    enemiespic2.src = "images/ene2.png"; //Enemies picture
     ctx.drawImage(myImage, 20, 20);
     ctx.drawImage(img,this.x,this.y, 10, 10);
     ctx.drawImage(enemiespic, 20, 20);
+    ctx.drawImage(enemiespic2, 20, 20);
     var cW = ctx.canvas.width 
     var cH = ctx.canvas.height;
     var enemies = [ {"id":"enemy1","x":100,"y":-20,"w":50,"h":30},
@@ -23,10 +26,29 @@ function initCanvas(){
                    {"id":"enemy10","x":600,"y":-20,"w":50,"h":30}
 
     ];
+    var enemies2 = [ {"id":"enemy1","x":100,"y":-220,"w":50,"h":30},
+                    {"id":"enemy2","x":225,"y":-220,"w":50,"h":30},
+                    {"id":"enemy3","x":350,"y":-220,"w":80,"h":50},
+                    {"id":"enemy4","x":100,"y":-270,"w":80,"h":50},
+                    {"id":"enemy5","x":225,"y":-270,"w":50,"h":30},
+                    {"id":"enemy6","x":350,"y":-270,"w":50,"h":30},
+                    {"id":"enemy7","x":475,"y":-270,"w":50,"h":30},
+                    {"id":"enemy8","x":600,"y":-270,"w":80,"h":50},
+                    {"id":"enemy9","x":475,"y":-200,"w":50,"h":30},
+                   {"id":"enemy10","x":600,"y":-200,"w":50,"h":30}
+
+    ];
     function renderEnemies(){
         for(var i = 0; i < enemies.length; i++){
             //ctx.fillStyle = "green";
             ctx.drawImage(enemiespic,enemies[i].x,enemies[i].y+=.5, enemies[i].w, enemies[i].h);
+            //ctx.fillRect(enemies[i].x, enemies[i].y+=.5, enemies[i].w, enemies[i].h);
+        }
+    }
+    function renderEnemies2(){
+        for(var i = 0; i < enemies2.length; i++){
+            //ctx.fillStyle = "green";
+            ctx.drawImage(enemiespic2,enemies2[i].x,enemies2[i].y+=.5, enemies2[i].w, enemies2[i].h);
             //ctx.fillRect(enemies[i].x, enemies[i].y+=.5, enemies[i].w, enemies[i].h);
         }
     }
@@ -64,7 +86,7 @@ function initCanvas(){
                     this.missiles.splice(i,1); // Splice that missile out of the missiles array
                 }
             }
-            if(enemies.length == 0){
+            if(enemies.length == 0 && enemies2.length == 0){
                 clearInterval(animateInterval); // Stop the game animation loop
                 ctx.fillStyle = '#FC0';
                 ctx.font = 'italic bold 36px Arial, sans-serif';
@@ -84,6 +106,17 @@ function initCanvas(){
                     document.getElementById('status').innerHTML = "Destroyed "+ e.id+ " ";
                 }
             }
+            for(var i = 0; i < enemies2.length; i++){
+                var e = enemies2[i];
+                if(m.x+m.w >= e.x && 
+                   m.x <= e.x+e.w && 
+                   m.y >= e.y && 
+                   m.y <= e.y+e.h){
+                    this.missiles.splice(this.missiles[mi],1); // Remove the missile
+                    enemies2.splice(i,1); // Remove the enemy that the missile hit
+                    document.getElementById('status').innerHTML = "Destroyed "+ e.id+ " ";
+                }
+            }
         }
     }
     var launcher = new Launcher();
@@ -91,6 +124,7 @@ function initCanvas(){
         ctx.clearRect(0, 0, cW, cH);
         launcher.render();
         renderEnemies();
+        renderEnemies2();
     }
     var animateInterval = setInterval(animate, 12);
     var left_btn = document.getElementById('left_btn');
@@ -172,6 +206,17 @@ function initCanvas(){
            launcher.dir = '';
          }
     }, false);
+
+    document.addEventListener('keydown', function(event){
+         if(event.keyCode == 80)
+         {
+          location.reload();
+         }
+    }, false);
+
+
+
+
     left_btn.addEventListener('mouseup', function(event) {
         launcher.dir = '';
     });
