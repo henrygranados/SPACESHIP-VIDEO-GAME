@@ -214,9 +214,6 @@ function initCanvas(){
          }
     }, false);
 
-
-
-
     left_btn.addEventListener('mouseup', function(event) {
         launcher.dir = '';
     });
