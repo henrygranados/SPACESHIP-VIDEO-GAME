@@ -195,6 +195,7 @@ function initCanvas(){
         launcher.missiles.push({});
         }
     }, false);
+    
 }
 window.addEventListener('load', function(event) {
     initCanvas();
