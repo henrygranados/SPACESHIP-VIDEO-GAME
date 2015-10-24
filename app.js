@@ -59,8 +59,9 @@ function initCanvas(){
         this.w = 100, 
         this.h = 100,   
         this.dir, 
-        this.bg="red", 
+        this.bg="white", 
         this.missiles = [];
+        this.Nave = 1;
 
         this.render = function(){
             if(this.dir == 'left'){
@@ -82,6 +83,7 @@ function initCanvas(){
                 ctx.fillStyle = ctx.drawImage(img,this.x,this.y, 100, 90);
                 ctx.fillRect(m.x, m.y-=5, m.w, m.h);
                 this.hitDetect(this.missiles[i],i);
+                this.hitDetectLowerLevel();
                 if(m.y <= 0){ // If a missile goes past the canvas boundaries, remove it
                     this.missiles.splice(i,1); // Splice that missile out of the missiles array
                 }
@@ -118,6 +120,18 @@ function initCanvas(){
                 }
             }
         }
+
+        this.hitDetectLowerLevel = function(){
+            for(var i = 0 ; i < enemies.length; i++){
+                var e = enemies[i];
+                if(e.y > 550){
+                clearInterval(animateInterval); // Stop the game animation loop
+                ctx.fillStyle = '#FC0';
+                ctx.font = 'italic bold 36px Arial, sans-serif';
+                ctx.fillText('Game Over!', cW*.5-130, 50, 300);
+                }
+            }
+        }
     }
     var launcher = new Launcher();
     function animate(){
@@ -126,7 +140,7 @@ function initCanvas(){
         renderEnemies();
         renderEnemies2();
     }
-    var animateInterval = setInterval(animate, 12);
+    var animateInterval = setInterval(animate, 4);
     var left_btn = document.getElementById('left_btn');
     var right_btn = document.getElementById('right_btn');
     var fire_btn = document.getElementById('fire_btn'); 
