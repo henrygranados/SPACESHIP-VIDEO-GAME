@@ -102,7 +102,7 @@ function initCanvas(){
                     this.missiles.splice(i,1); // Splice that missile out of the missiles array
                 }
             }
-            if (enemies.length == 0 /*&& enemies2.shipList.length == 0*/) {
+            if (enemies.length == 0) {
                 clearInterval(animateInterval); // Stop the game animation loop
                 ctx.fillStyle = '#FC0';
                 ctx.font = 'italic bold 36px Arial, sans-serif';
@@ -157,7 +157,6 @@ function initCanvas(){
         ctx.clearRect(0, 0, cW, cH);
         launcher.render();
         renderEnemies(enemies);
-        //renderEnemies(enemies2);
     }
     var animateInterval = setInterval(animate, 4);
     var left_btn = document.getElementById('left_btn');
